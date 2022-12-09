@@ -324,6 +324,7 @@ M.generate(
 
 M.run = function(direction)
   local start_position = vim.api.nvim_win_get_cursor(0)
+  vim.cmd[[ normal wb ]]
 
   -- Tail-recursive function to match and replace.
   local function tryMatch(last_position)
@@ -389,6 +390,7 @@ M.run = function(direction)
         if direction == 'decrement' then return vim.cmd('normal!' .. '') end
     end
   end
+
 end
 
 M.setup = function(options)
@@ -419,7 +421,7 @@ M.setup = function(options)
         vim.keymap.set(
             { 'n', 'v' },
             options.mappings.increment,
-            '<cmd>execute "normal wb" | Boole increment<cr>'
+            '<cmd>Boole increment<cr>'
         )
     end
 
@@ -427,7 +429,7 @@ M.setup = function(options)
         vim.keymap.set(
             { 'n', 'v' },
             options.mappings.decrement,
-            '<cmd>execute "normal wb" | Boole increment<cr>'
+            '<cmd>Boole increment<cr>'
         )
     end
 
