@@ -419,7 +419,7 @@ M.setup = function(options)
         vim.keymap.set(
             { 'n', 'v' },
             options.mappings.increment,
-            '<Cmd>Boole increment<CR>'
+            '<cmd>execute "normal wb" | Boole increment<cr>'
         )
     end
 
@@ -427,7 +427,7 @@ M.setup = function(options)
         vim.keymap.set(
             { 'n', 'v' },
             options.mappings.decrement,
-            '<Cmd>Boole decrement<CR>'
+            '<cmd>execute "normal wb" | Boole increment<cr>'
         )
     end
 
